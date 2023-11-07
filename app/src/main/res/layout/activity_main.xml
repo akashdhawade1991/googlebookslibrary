@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--on below line we are creating a swipe to refresh layout-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimaryDark"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.DayNight.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+        <!-- Use the custom title layout -->
+        <include layout="@layout/custom_toolbar_title" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/idLLsearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <EditText
+            android:id="@+id/idEdtSearchBooks"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/search_hint"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="4" />
+
+        <ImageButton
+            android:id="@+id/idBtnSearch"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_search"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:tooltipText="@string/"
+            android:background="@drawable/background_button"/>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/idRVBooks"
+        android:layout_width="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/idLLsearch" />
+
+    <ProgressBar
+        android:id="@+id/idLoadingPB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+</RelativeLayout>
